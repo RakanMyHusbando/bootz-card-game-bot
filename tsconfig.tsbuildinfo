@@ -1,1 +1,1 @@
-{"root":["./src/classes.ts","./src/index.ts","./src/interfaces.ts","./src/events/ready.ts"],"version":"5.7.2"}
+{"root":["./src/classes.ts","./src/enums.ts","./src/index.ts","./src/interfaces.ts","./src/commands/test.ts","./src/events/client/ready.ts","./src/events/guild/commandHandler.ts"],"version":"5.7.2"}
