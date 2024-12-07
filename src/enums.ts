@@ -1,3 +1,4 @@
 export enum Category {
-    Ultility = 'Ultility',
+    Ultility = "Ultility",
+    CardGame = "CardGame",
 }
