@@ -1,5 +1,6 @@
 import { ChatInputCommandInteraction, PermissionsBitField } from "discord.js";
-import { InterUser, GetUserByDcId, UserEmbed } from "../apiHandler/user";
+import { InterUser, GetUserByDcId } from "../apiHandler/user";
+import { GetCardById } from "../apiHandler/card";
 import { Command, CustomClient } from "../classes";
 import { Category } from "../enums";
 
@@ -18,17 +19,30 @@ export default class ShowInventory extends Command {
     }
 
     async execute(interaction: ChatInputCommandInteraction) {
-        await GetUserByDcId(interaction.user.id)
-            .then((res) => {
-                interaction.reply({
-                    embeds: [UserEmbed(res)],
-                });
-            })
-            .catch((err) => {
-                console.log(err);
-                interaction.reply({
-                    content: "An error occured while fetching user data",
-                });
+        console.log(interaction.user.id);
+        const user = (await GetUserByDcId(
+            interaction.user.id.toString(),
+        )) as InterUser;
+        if (!user) {
+            return interaction.reply({
+                content: "User not found",
+                ephemeral: true,
             });
+        } else if (user.cards.length === 0) {
+            return interaction.reply({
+                content: "User has no cards",
+                ephemeral: true,
+            });
+        } else {
+            console.log(user.cards);
+            for (const card of user.cards) {
+                const cardData = await GetCardById(card.card_id);
+                console.log(cardData);
+            }
+            return interaction.reply({
+                content: "User has cards",
+                ephemeral: true,
+            });
+        }
     }
 }
