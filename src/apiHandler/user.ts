@@ -42,41 +42,27 @@ export const GetUserByDcId = async (
 export const UserEmbed = async (
     user: InterUser,
 ): Promise<EmbedBuilder | null> => {
-    const userEmbed = new EmbedBuilder()
-        .setTitle("User Inventory")
-        .setColor("#FF0000")
-        .addFields(
-            { name: "Card", value: "\u200B", inline: true },
-            { name: "Type", value: "\u200B", inline: true },
-            { name: "Amount", value: "\u200B", inline: true },
-        );
     try {
+        const nameField = { name: "Name", value: "", inline: true };
+        const typeField = { name: "Type", value: "", inline: true };
+        const amountField = { name: "Amount", value: "", inline: true };
+
         for (const card of user.cards) {
             await GetCardById(card.card_id).then((res) => {
-                if (res?.title != undefined && res?.type != undefined)
-                    userEmbed.setFields(
-                        {
-                            name: "\u200B",
-                            value: res.title,
-                            inline: true,
-                        },
-                        {
-                            name: "\u200B",
-                            value: res.type,
-                            inline: true,
-                        },
-                        {
-                            name: "\u200B",
-                            value: card.own_amount.toString(),
-                            inline: true,
-                        },
-                    );
+                if (res?.title != undefined && res?.type != undefined) {
+                    nameField.value += res.title + "\n";
+                    typeField.value += res.type + "\n";
+                    amountField.value += card.own_amount.toString() + "\n";
+                }
             });
         }
+
+        return new EmbedBuilder()
+            .setTitle("User Inventory")
+            .setColor("#FF00FF")
+            .addFields(nameField, typeField, amountField);
     } catch (err) {
         console.error(err);
         return null;
-    } finally {
-        return userEmbed;
     }
 };
