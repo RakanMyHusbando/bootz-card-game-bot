@@ -5,6 +5,7 @@ export interface InterUser {
     id: number;
     name: string;
     discord_id: string;
+    unknown_card_amount: number;
     cards: InterUserCard[];
 }
 
@@ -43,6 +44,11 @@ export const UserEmbed = async (
     user: InterUser,
 ): Promise<EmbedBuilder | null> => {
     try {
+        const unknownCardField = {
+            name: "Unknown Card",
+            value: user.unknown_card_amount.toString(),
+            inline: false,
+        };
         const nameField = { name: "Name", value: "", inline: true };
         const typeField = { name: "Type", value: "", inline: true };
         const amountField = { name: "Amount", value: "", inline: true };
@@ -60,7 +66,7 @@ export const UserEmbed = async (
         return new EmbedBuilder()
             .setTitle("User Inventory")
             .setColor("#FF00FF")
-            .addFields(nameField, typeField, amountField);
+            .addFields(unknownCardField, nameField, typeField, amountField);
     } catch (err) {
         console.error(err);
         return null;
