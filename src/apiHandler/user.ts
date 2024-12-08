@@ -1,3 +1,6 @@
+import { EmbedBuilder } from "discord.js";
+import { GetCardById } from "./card";
+
 export interface InterUser {
     id: number;
     name: string;
@@ -34,4 +37,46 @@ export const GetUserByDcId = async (
             console.error(err);
             return null;
         });
+};
+
+export const UserEmbed = async (
+    user: InterUser,
+): Promise<EmbedBuilder | null> => {
+    const userEmbed = new EmbedBuilder()
+        .setTitle("User Inventory")
+        .setColor("#FF0000")
+        .addFields(
+            { name: "Card", value: "\u200B", inline: true },
+            { name: "Type", value: "\u200B", inline: true },
+            { name: "Amount", value: "\u200B", inline: true },
+        );
+    try {
+        for (const card of user.cards) {
+            await GetCardById(card.card_id).then((res) => {
+                if (res?.title != undefined && res?.type != undefined)
+                    userEmbed.setFields(
+                        {
+                            name: "\u200B",
+                            value: res.title,
+                            inline: true,
+                        },
+                        {
+                            name: "\u200B",
+                            value: res.type,
+                            inline: true,
+                        },
+                        {
+                            name: "\u200B",
+                            value: card.own_amount.toString(),
+                            inline: true,
+                        },
+                    );
+            });
+        }
+    } catch (err) {
+        console.error(err);
+        return null;
+    } finally {
+        return userEmbed;
+    }
 };
