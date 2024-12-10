@@ -1,5 +1,6 @@
 import { ChatInputCommandInteraction, PermissionsBitField } from "discord.js";
-import { InterUser, GetUserByDcId, UserEmbed } from "../apiHandler/user";
+import { InterGetUser, GetUserByDcId } from "../apiHandler/user";
+import { UserEmbed } from "../utils";
 import { Command, CustomClient } from "../classes";
 import { Category } from "../enums";
 
@@ -18,7 +19,7 @@ export default class ShowInventory extends Command {
     }
 
     async execute(interaction: ChatInputCommandInteraction) {
-        const user = (await GetUserByDcId(interaction.user.id)) as InterUser;
+        const user = (await GetUserByDcId(interaction.user.id)) as InterGetUser;
         if (!user) {
             return interaction.reply({
                 content: "User not found",

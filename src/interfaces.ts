@@ -11,7 +11,6 @@ export interface InterConfig {
     token: string;
     appId: string;
     guildId: string;
-    clientId: string;
 }
 
 export interface InterCustomClient {
