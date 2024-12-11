@@ -1,0 +1,9 @@
+[
+    {
+        "name": "register",
+        "error": {
+            "content": "cant register new user",
+            "ephermal": true
+        }
+    }
+]

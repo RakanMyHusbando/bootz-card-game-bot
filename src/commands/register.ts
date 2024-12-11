@@ -12,7 +12,7 @@ export default class register extends Command {
             defualtMemberPermission:
                 PermissionsBitField.Flags.UseApplicationCommands,
             dmPremission: false,
-            cooldown: 10,
+            cooldown: 2,
             options: [],
         });
     }
@@ -21,12 +21,8 @@ export default class register extends Command {
             name: interaction.user.displayName,
             discord_id: interaction.user.id,
         };
-        const content: string = await PostUser(user)
-            .then(() => "Successfully added new user")
-            .catch((err: Error) => err.message);
-        interaction.reply({
-            content: content,
-            ephemeral: true,
-        });
+        await PostUser(user).then((res) =>
+            interaction.reply({ content: res, ephemeral: true }),
+        );
     }
 }

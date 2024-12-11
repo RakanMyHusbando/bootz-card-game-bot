@@ -44,7 +44,7 @@ export const GetUserByDcId = async (
         });
 };
 
-export const PostUser = async (user: InterPostUser): Promise<Error | null> => {
+export const PostUser = async (user: InterPostUser): Promise<string> => {
     const req = new Request("http://localhost:5000/user", {
         method: "POST",
         headers: {
@@ -52,15 +52,12 @@ export const PostUser = async (user: InterPostUser): Promise<Error | null> => {
         },
         body: JSON.stringify(user),
     });
+
     return await fetch(req)
         .then((res) => res.json())
-        .then((res) => {
-            if (res.status == 200) return null;
-            else if (res.status == 424) return new Error(res.message);
-            else throw new Error(res.message);
-        })
+        .then((res) => res.messsage)
         .catch((err) => {
             console.error(err);
-            return new Error("Request failed");
+            return "cant create new user";
         });
 };

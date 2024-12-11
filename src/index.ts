@@ -1,3 +1,3 @@
-import { CustomClient } from './classes'
+import { CustomClient } from "./classes";
 
-(new CustomClient()).init()
+new CustomClient().init();
