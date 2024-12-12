@@ -1,24 +1,4 @@
-import { EmbedBuilder } from "discord.js";
-import { GetCardById } from "./card";
-
-export interface InterGetUser {
-    id: number;
-    name: string;
-    discord_id: string;
-    unknown_card_amount: number;
-    cards: InterUserCard[];
-}
-
-export interface InterPostUser {
-    name: string;
-    discord_id: string;
-}
-
-export interface InterUserCard {
-    user_id: number;
-    card_id: number;
-    own_amount: number;
-}
+import { InterGetUser, InterPostUser } from "./interfaces";
 
 export const GetUserByDcId = async (
     dcId: string,
@@ -55,9 +35,8 @@ export const PostUser = async (user: InterPostUser): Promise<string> => {
 
     return await fetch(req)
         .then((res) => res.json())
-        .then((res) => res.messsage)
         .catch((err) => {
             console.error(err);
-            return "cant create new user";
+            return null;
         });
 };

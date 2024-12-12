@@ -1,13 +1,4 @@
-export interface InterCard {
-    id: number;
-    title: string;
-    description: string;
-    type: string;
-    rarity: number;
-    attack: number;
-    defense: number;
-    health: number;
-}
+import { InterCard } from "./interfaces";
 
 export const GetCardById = async (id: number): Promise<InterCard | null> => {
     const reqAllCard = new Request("http://localhost:5000/card/" + id, {

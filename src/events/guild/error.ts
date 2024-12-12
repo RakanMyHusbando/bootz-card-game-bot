@@ -3,13 +3,8 @@ import {
     Events,
     InteractionReplyOptions,
 } from "discord.js";
-import { Command, CustomClient, Event } from "../../classes";
+import { CustomClient, Event } from "../../classes";
 import errors from "../../errors.json";
-
-interface InterErrors {
-    name: string;
-    error: InteractionReplyOptions;
-}
 
 export default class ErrorHandler extends Event {
     constructor(client: CustomClient) {
@@ -27,10 +22,13 @@ export default class ErrorHandler extends Event {
                 if (!res) {
                     const err = errors.find(
                         (elem) => elem.name == interaction.commandName,
-                    ) as InterErrors;
-                    interaction.reply(err.error);
+                    );
+                    interaction.reply({
+                        content: err?.error.content,
+                        ephemeral: err?.error.ephermal,
+                    });
                 }
             });
-        }, 5000);
+        }, 3000);
     }
 }
