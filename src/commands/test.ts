@@ -18,7 +18,7 @@ export default class Test extends Command {
 
     execute = (interaction: ChatInputCommandInteraction) =>
         interaction.reply({
-            content: "Test command executed!",
+            content: "Test executed!",
             ephemeral: true,
         });
 }
