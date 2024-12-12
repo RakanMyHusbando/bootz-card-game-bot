@@ -14,8 +14,8 @@ export const GetUserByDcId = async (
         .then((res) =>
             res.status === 200 && res.data && res.data.length != 0
                 ? (res.data.find(
-                      (user: any) => user.discord_id === dcId,
-                  ) as InterGetUser)
+                    (user: any) => user.discord_id === dcId,
+                ) as InterGetUser)
                 : null,
         )
         .catch((err) => {

@@ -1,7 +1,8 @@
 import { ChatInputCommandInteraction, PermissionsBitField } from "discord.js";
 import { Command, CustomClient } from "../classes";
 import { Category } from "../enums";
-import { GetCardById, GetRandomCard } from "../apiHandler/card"
+import { GetRandomCard } from "../apiHandler/userCard"
+import { GetUserByDcId } from "../apiHandler/user";
 
 export default class reveal extends Command {
     constructor(client: CustomClient) {
@@ -17,12 +18,14 @@ export default class reveal extends Command {
         });
     }
 
-    execute = async (interaction: ChatInputCommandInteraction) => {
+    execute = (interaction: ChatInputCommandInteraction) => {
         var cardNumber = Math.random() * 5;
-        await GetRandomCard().then(card => {
-            interaction.reply({
-                content: `nice \n ${JSON.stringify(card?.title)}`,
-                ephemeral: true,
+        GetUserByDcId(interaction.user.id).then(data=>{
+            GetRandomCard(data?.id!).then(data => {
+                interaction.reply({
+                    content: `nice \n ${data?.title}`,
+                    ephemeral: true,
+                });
             });
         });
     }

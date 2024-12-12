@@ -1,5 +1,6 @@
 import { ChatInputCommandInteraction, PermissionsBitField } from "discord.js";
-import { InterGetUser, GetUserByDcId } from "../apiHandler/user";
+import {GetUserByDcId } from "../apiHandler/user";
+import { InterGetUser } from "../apiHandler/interfaces"
 import { UserEmbed } from "../utils";
 import { Command, CustomClient } from "../classes";
 import { Category } from "../enums";

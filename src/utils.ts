@@ -1,4 +1,4 @@
-import { InterGetUser } from "./apiHandler/user";
+import { InterGetUser } from "./apiHandler/interfaces";
 import { EmbedBuilder } from "discord.js";
 import { GetCardById } from "./apiHandler/card";
 

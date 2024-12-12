@@ -1,7 +1,8 @@
 import { ChatInputCommandInteraction, PermissionsBitField } from "discord.js";
 import { Command, CustomClient } from "../classes";
 import { Category } from "../enums";
-import { InterPostUser, PostUser } from "../apiHandler/user";
+import { InterPostUser } from "../apiHandler/interfaces";
+import { PostUser} from "../apiHandler/user"
 
 export default class register extends Command {
     constructor(client: CustomClient) {
