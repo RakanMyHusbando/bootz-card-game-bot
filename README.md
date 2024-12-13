@@ -5,10 +5,8 @@ Welcome to the Bootz Card Game Bot repository!
 ## Description
 Bootz Card Game Bot is a TypeScript-based bot designed to interact with a card game. The bot is capable of managing game logic, player interactions, and game state. 
 
-## Features
-- **Game Logic**: Implements the core rules and mechanics of the card game.
-- **Player Interaction**: Facilitates player moves and interactions within the game.
-- **Game State Management**: Maintains the current state of the game and updates it as the game progresses.
+### Bot Commands
+- [] ```/register``` to register user for 
 
 ## Installation
 To install and run the bot locally, follow these steps:
