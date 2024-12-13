@@ -3,7 +3,7 @@
 Welcome to the Bootz Card Game Bot repository!
 
 ## Description
-Bootz Card Game Bot is a TypeScript-based bot designed to interact with the [Bootz Card Game](https://github.com/RakanMyHusbando/bootz-card-game). The goal is that the bot is capable of managing game logic, player interactions, and game state. 
+Bootz Card Game Bot is a TypeScript-based bot designed to interact with the [Bootz Card Game](https://github.com/RakanMyHusbando/bootz-card-game). The goal is that the bot is capable of managing game logic, player interactions, and game state.
 
 ## Features
 - [ ] card designs
@@ -13,8 +13,9 @@ Bootz Card Game Bot is a TypeScript-based bot designed to interact with the [Boo
 ### Bot Commands
 - [ ] `/register` to register as a new user
 - [x] `/show_inventory` to view your own inventory of cards
-- [ ] `/pull` to draw a card (if you still have unopened items in your inventory)
-- [ ] `/challenge <user>` to play against another user 
+- [ ] `/reveal <amount>` to draw a card (if you still have unopened items in your inventory)
+- [ ] `/challenge <user>` to play against another user
+- [ ] `/trade <user> <card>` to trade a card with another user
 
 ## Setup
 

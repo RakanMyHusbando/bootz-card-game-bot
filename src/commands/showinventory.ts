@@ -1,6 +1,6 @@
 import { ChatInputCommandInteraction, PermissionsBitField } from "discord.js";
-import {GetUserByDcId } from "../apiHandler/user";
-import { InterGetUser } from "../apiHandler/interfaces"
+import { GetUserByDcId } from "../apiHandler/user";
+import { InterGetUser } from "../apiHandler/interfaces";
 import { UserEmbed } from "../utils";
 import { Command, CustomClient } from "../classes";
 import { Category } from "../enums";
@@ -8,7 +8,7 @@ import { Category } from "../enums";
 export default class ShowInventory extends Command {
     constructor(client: CustomClient) {
         super(client, {
-            name: "showinventory",
+            name: "show_inventory",
             description: "Show inventory command",
             category: Category.CardGame,
             defualtMemberPermission:
