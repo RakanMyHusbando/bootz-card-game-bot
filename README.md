@@ -7,7 +7,7 @@ Bootz Card Game Bot is a TypeScript-based bot designed to interact with the [Boo
 
 ## Features
 - [ ] card designs
-- [ ] swap trading cards
+- [ ] trade trading cards
 - [ ] card game matches
 
 ### Bot Commands
