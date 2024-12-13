@@ -36,13 +36,7 @@ To install and run the bot locally, follow these steps:
    ```
 
 ## Usage
-Once the bot is running, it can be integrated with your card game to manage game sessions, handle player actions, and enforce game rules.
-
-## Contributing
-Contributions are welcome! Please fork the repository and submit pull requests to contribute to the project.
+Once the bot is running, it can be integrated with the bootz card game backend to manage game sessions, handle player actions, and enforce game rules.
 
 ## License
 This project is licensed under the MIT License.
-
-## Contact
-For any questions or inquiries, please contact [RakanMyHusbando](https://github.com/RakanMyHusbando).
