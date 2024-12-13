@@ -41,9 +41,3 @@ Bootz Card Game Bot is a TypeScript-based bot designed to interact with the [Boo
     npm run start
     npm run dev # developer mode
     ```
-
-## Usage
-Once the bot is running, it can be integrated with the bootz card game backend to manage game sessions, handle player actions, and enforce game rules.
-
-## License
-This project is licensed under the MIT License.
