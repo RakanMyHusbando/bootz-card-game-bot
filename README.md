@@ -3,7 +3,7 @@
 Welcome to the Bootz Card Game Bot repository!
 
 ## Description
-Bootz Card Game Bot is a TypeScript-based bot designed to interact with the [Bootz Card Gane](https://github.com/RakanMyHusbando/bootz-card-game). The goal is that the bot is capable of managing game logic, player interactions, and game state. 
+Bootz Card Game Bot is a TypeScript-based bot designed to interact with the [Bootz Card Game](https://github.com/RakanMyHusbando/bootz-card-game). The goal is that the bot is capable of managing game logic, player interactions, and game state. 
 
 ## Features
 - [ ] card designs
@@ -16,22 +16,24 @@ Bootz Card Game Bot is a TypeScript-based bot designed to interact with the [Boo
 - [ ] `/pull` to draw a card (if you still have unopened items in your inventory)
 - [ ] `/challenge <user>` to play against another user 
 
-## Installation
-To install and run the bot locally, follow these steps:
-1. Clone the repository:
-   ```bash
+## Setup
+
+1. Install Node.js from the [official website](https://nodejs.org/) or using a version manager like [nvm](https://github.com/nvm-sh/nvm) and the [Bootz Card Game](https://github.com/RakanMyHusbando/bootz-card-game) repo.
+   
+2. Clone the repository:
+   ```sh
    git clone https://github.com/RakanMyHusbando/bootz-card-game-bot.git bot
    ```
-2. Navigate to the project directory:
-   ```bash
+3. Navigate to the project directory:
+   ```sh
    cd bot
    ```
-3. Install the dependencies:
-   ```bash
+4. Install the dependencies:
+   ```sh
    npm install
    ```
-4. Run the bot:
-   ```bash
+5. Run the bot:
+   ```sh
    npm run start
    ```
 
