@@ -32,7 +32,7 @@ To install and run the bot locally, follow these steps:
    ```
 4. Run the bot:
    ```bash
-   npm start
+   npm run start
    ```
 
 ## Usage
