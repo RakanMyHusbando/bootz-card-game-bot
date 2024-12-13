@@ -2,7 +2,7 @@ import { ChatInputCommandInteraction, PermissionsBitField } from "discord.js";
 import { Command, CustomClient } from "../classes";
 import { Category } from "../enums";
 import { InterPostUser } from "../apiHandler/interfaces";
-import { PostUser} from "../apiHandler/user"
+import { PostUser } from "../apiHandler/user";
 
 export default class register extends Command {
     constructor(client: CustomClient) {
@@ -22,8 +22,14 @@ export default class register extends Command {
             name: interaction.user.displayName,
             discord_id: interaction.user.id,
         };
-        await PostUser(user).then((res) =>
-            interaction.reply({ content: res, ephemeral: true }),
-        );
+        await PostUser(user)
+            .then((res) => interaction.reply({ content: res, ephemeral: true }))
+            .catch((err) => {
+                console.error(err);
+                interaction.reply({
+                    content: err.message,
+                    ephemeral: true,
+                });
+            });
     }
 }
