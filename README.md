@@ -20,11 +20,11 @@ Bootz Card Game Bot is a TypeScript-based bot designed to interact with the [Boo
 To install and run the bot locally, follow these steps:
 1. Clone the repository:
    ```bash
-   git clone https://github.com/RakanMyHusbando/bootz-card-game-bot.git
+   git clone https://github.com/RakanMyHusbando/bootz-card-game-bot.git bot
    ```
 2. Navigate to the project directory:
    ```bash
-   cd bootz-card-game-bot
+   cd bot
    ```
 3. Install the dependencies:
    ```bash
